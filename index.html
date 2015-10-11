@@ -34,31 +34,47 @@
                          */
                         selectable: true,
                         selectHelper: true,
-                        /*
-                         todo figure out how to make an events.php
-                         */
                         events: [
                             {
                                 title: 'T6 Dry Top',
-                                start: '2015-10-13T19:00:00-07:00',
-                                end: '2015-10-13T21:00:00-07:00',
+                                start: '2015-10-14T02:00:00Z',
+                                end: '2015-10-14T04:00:00Z',
                                 allDay: false
                             }
-                        ]
+                        ],
+                        eventBackgroundColor: '#2A2C05',
+                        eventTextColor: '#EFE0B9'
                     });
         });
     </script>
     <link rel="stylesheet" href="css/index.css"/>
 </head>
-<body>
-<h1 align="center">[SAND] Dry Top Event Calendar</h1>
-<p>Calendar displays in the local timezone. Example: The event starts at 7pm PDT, but on my computer shows 10pm</p>
-<div id="calendar"></div>
+<body style="background-color: #EFE0B9; color: #B7521E;">
+<h1 align="center" style="color: #643B0F;">[SAND] Dry Top Event Calendar</h1>
 
+<p>
+    Calendar displays in the local timezone.<br/>
+    Example: The event starts at 7pm PDT, but on my computer the calendar shows 10pm.<br/>
+    I also now have it configured in "server time" (+/- 00:00) so local time also handles Daylight Savings Time changes.
+</p>
+<div class="calendar">
+<div id="calendar" style="background-color:  #E4B04A;"></div>
+</div>
+
+<div class="twitter">
 <p>Look! A Twitter feed!</p>
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/DryTopSAND" data-widget-id="653238419250778112">
+<a
+        class="twitter-timeline"
+        data-dnt="true"
+        href="https://twitter.com/DryTopSAND"
+        width="520"
+        data-widget-id="653238419250778112"
+        >
+    <!--width="180"-->
+    <!--data-tweet-limit="3"-->
     Tweets by @DryTopSAND
 </a>
+</div>
 <script>
     /* Populate Twitter widget */
     !function (d, s, id) {
