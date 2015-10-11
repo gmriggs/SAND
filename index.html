@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="A website for information on the Guild Wars 2 guild That's No Tornado [SAND]">
-    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-    <base href="http://itsasine.github.io/drytopsand/">
+    <meta name="description" content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
+    <meta name="keywords" content="GW2,Guild Wars 2,Dry Top,SAND,guild">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="http://itsasine.github.io/DryTopSAND/">
     <title>[SAND] That's No Tornado</title>
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css'/>
-    <!--
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.print.css' />
-    -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!--
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    -->
-    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js'></script>
-    <!--todo move this out-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">-->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>-->
     <script type="text/javascript">
         /*
          jQuery document ready
@@ -29,105 +26,39 @@
                             center: 'title',
                             right: 'month,agendaWeek,agendaDay'
                         },
-                        defaultView: 'agendaWeek',
-                        /*
+                        timezone: 'local',
+                        /*defaultView: 'month',
+
                          selectable:true will enable user to select datetime slot
                          selectHelper will add helpers for selectable.
                          */
                         selectable: true,
                         selectHelper: true,
                         /*
-                         events is the main option for calendar.
-                         for demo we have added predefined events in json object.
-                         events: [
-                         {
-                         title: 'All Day Event',
-                         start: new Date(y, m, 1)
-                         },
-                         {
-                         title: 'Long Event',
-                         start: new Date(y, m, d-5),
-                         end: new Date(y, m, d-2)
-                         },
-                         {
-                         id: 999,
-                         title: 'Repeating Event',
-                         start: new Date(y, m, d-3, 16, 0),
-                         allDay: false
-                         },
-                         {
-                         id: 999,
-                         title: 'Repeating Event',
-                         start: new Date(y, m, d+4, 16, 0),
-                         allDay: false
-                         },
-                         {
-                         title: 'Meeting',
-                         start: new Date(y, m, d, 10, 30),
-                         allDay: false
-                         },
-                         {
-                         title: 'Lunch',
-                         start: new Date(y, m, d, 12, 0),
-                         end: new Date(y, m, d, 14, 0),
-                         allDay: false
-                         },
-                         {
-                         title: 'Birthday Party',
-                         start: new Date(y, m, d+1, 19, 0),
-                         end: new Date(y, m, d+1, 22, 30),
-                         allDay: false
-                         },
-                         {
-                         title: 'Click for Google',
-                         start: new Date(y, m, 28),
-                         end: new Date(y, m, 29),
-                         url: 'http://google.com/'
-                         }
-                         ]
-                         */
-                        /*
                          todo figure out how to make an events.php
                          */
                         events: [
                             {
-                                title: 'Dry Top T6',
-                                start: '2015-10-13T19:00:00-08:00',
-                                end: '2015-10-13T21:00:00-08:00',
+                                title: 'T6 Dry Top',
+                                start: '2015-10-13T19:00:00-07:00',
+                                end: '2015-10-13T21:00:00-07:00',
                                 allDay: false
                             }
                         ]
                     });
         });
     </script>
-    <!--todo just use materialize.css-->
-    <style type="text/css">
-        body {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 14px;
-            font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-        }
-
-        #calendar {
-            width: 900px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
-<h1>[SAND] Dry Top Event Calendar</h1>
-<div id='calendar' style="width: 50%; float: left;"></div>
+<h1 align="center">[SAND] Dry Top Event Calendar</h1>
+<div id="calendar"></div>
 
-<a class="twitter-timeline"
-   data-dnt="true"
-   href="https://twitter.com/DryTopSAND"
-   data-widget-id="653238419250778112"
-   style="width: 50%; float: right;">
+<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/DryTopSAND" data-widget-id="653238419250778112">
     Tweets by @DryTopSAND
 </a>
 <script>
-    /* Min Twitter widget */
+    /* Populate Twitter widget */
     !function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
         if (!d.getElementById(id)) {
