@@ -4,3 +4,7 @@ body {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
 }
+
+.widget {
+    margin: 10px;
+}
