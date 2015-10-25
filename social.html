@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>[SAND] That's No Tornado</title>
+    <title>[SAND] Contact</title>
 
     <!-- This icon link doesn't seem to work -->
     <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png">
@@ -66,15 +66,34 @@
     <!-- /.container-fluid -->
 </nav>
 
-<div id="logoBox">
-    <img src="http://guilds.gw2w2w.com/guilds/thats-no-tornado/256.svg" id="guildLogo"/>
+<h2>Follow us on Twitter!</h2>
 
-    <h1 id="guildName">
-        [SAND] That's No Tornado
-    </h1>
+<div class="twitter widget">
+    <a
+            class="twitter-timeline"
+            data-dnt="true"
+            href="https://twitter.com/DryTopSAND"
+            width="520"
+            data-widget-id="653238419250778112"
+            >
+        <!--width="180"-->
+        <!--data-tweet-limit="3"-->
+        Tweets by @DryTopSAND
+    </a>
 </div>
 
-<p>Introductory stuff</p>
+<script>
+    /* Populate Twitter widget */
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, "script", "twitter-wjs");
+</script>
 
 </body>
 </html>
