@@ -32,3 +32,16 @@ h1, h2, h3, h4, h5, h6 {
     color: #643B0F;
     align: center;
 }
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: left;
+}
+
+table {
+    height: 50%;
+    width: 50%;
+}
