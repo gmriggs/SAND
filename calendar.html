@@ -40,6 +40,19 @@
          jQuery document ready
          */
         $(document).ready(function () {
+            var events = (function() {
+                var json = null;
+                $.ajax({
+                    'async': true,
+                    'global': false,
+                    'url': "./data/calendar.json",
+                    'dataType': "json",
+                    'success': function (data) {
+                        json = data;
+                    }
+                });
+                return json;
+            })();
             var calendar = $('#calendar').fullCalendar(
                     {
                         header: {
@@ -55,53 +68,7 @@
                          */
                         selectable: true,
                         selectHelper: true,
-                        events: [
-                                //TODO: Add prior runs based off Twitter for historic data
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-14T02:00:00Z',
-                                end: '2015-10-14T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-17T02:00:00Z',
-                                end: '2015-10-17T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'Guild Mission',
-                                start: '2015-10-19T02:00:00Z',
-                                end: '2015-10-19T02:30:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-20T01:00:00Z',
-                                end: '2015-10-20T04:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-23T01:00:00Z',
-                                end: '2015-10-23T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'HoT and Halloween Break',
-                                start: '2015-10-23T07:00:00Z',
-                                end: '2015-11-06T00:00:00Z',
-                                allDay: false,
-                                color: '#C9341C'
-                            },
-                                //TODO: Add that impulse Dry Top for event history
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-11T02:00:00Z', //11-10-2015 @ 6pm PST = 11-11-2015 @ 2am UTC
-                                end: '2015-11-11T05:00:00Z',
-                                allDay: false
-                            }
-                        ],
+                        events: events,
                         eventBackgroundColor: '#2A2C05',
                         eventTextColor: '#EFE0B9'
                     });
