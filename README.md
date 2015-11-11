@@ -16,6 +16,7 @@ For instance:
 Use an online time converter to know what the event time will be in UTC, and format it like the current events:
 
 ```
+,
 {
     "title": "T6 Dry Top",
     "start": "2015-11-11T02:00:00Z",
@@ -27,15 +28,16 @@ Use an online time converter to know what the event time will be in UTC, and for
 
 ### File Location
 
-[Link](data/calendar.json)
+[Link](calendar.html)
 
-It's at /data/calendar.json
+It's at calendar.html
 
 ### How To Edit
 
 Go to the above file and on the right side of the file click the pencil icon.
 
-Then copy and paste the example code, just editing the start and end times to be what you need.
+Then copy and paste the example code at the bottom of the list of events, just editing the start and end times to be what you need.
+Current line to start editing at would be line `103`
 
 Then in the bottom of the page, write a description for what change you're making, like `Add an event`.
 Proper convention is to make the first word a present tense verb, and keep it short and sweet. The description is optional.
