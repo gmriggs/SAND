@@ -27,7 +27,7 @@ Use an online time converter to know what the event time will be in UTC, and for
 
 ### File Location
 
-[Link](calendar.json)
+[Link](data/calendar.json)
 
 It's at /data/calendar.json
 
