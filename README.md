@@ -46,12 +46,15 @@ Then click the Commit button. You should be able to then refresh the site and it
 
 ## To Do List
 
+1. E2E tests
+* Build status widget for the README
 * Content on the main page and guild info
 * Rank info in guild page fo sho
+* Move the rest of the code over to Bootstrap
+* Apple Easter Egg
 * Spruce up content on other pages, too
-* Get guild officers to make github accounts to modify this themselves
+* Get guild officers and/or interested individuals to make github accounts to modify this themselves
 * Teamspeak info on social page -- Yay nay?
 * Moon's chat templates on the Dry Top / Guild / Calendar / a new page?
-* Move the rest of the code over to Bootstrap
 * Maybe figure out why materialize breaks with the calendar
 * Maybe some sort of CMS to make updating the site less intimidating
