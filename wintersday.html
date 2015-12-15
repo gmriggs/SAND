@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>[SAND] That's No Tornado</title>
+
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png">
+    <meta name="description" content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
+    <meta name="keywords" content="GW2,Guild Wars 2,Dry Top,SAND,guild">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+    <script>
+        //Snowflake code via http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect
+        window.onload = function () {
+            //canvas init
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            //canvas dimensions
+            var W = window.innerWidth;
+            var H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+
+            //snowflake particles
+            var mp = 25; //max particles
+            var particles = [];
+            for (var i = 0; i < mp; i++) {
+                particles.push({
+                    x: Math.random() * W, //x-coordinate
+                    y: Math.random() * H, //y-coordinate
+                    r: Math.random() * 4 + 1, //radius
+                    d: Math.random() * mp //density
+                })
+            }
+
+            //Lets draw the flakes
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.beginPath();
+                for (var i = 0; i < mp; i++) {
+                    var p = particles[i];
+                    ctx.moveTo(p.x, p.y);
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+                }
+                ctx.fill();
+                update();
+            }
+
+            //Function to move the snowflakes
+            //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+            var angle = 0;
+
+            function update() {
+                angle += 0.01;
+                for (var i = 0; i < mp; i++) {
+                    var p = particles[i];
+                    //Updating X and Y coordinates
+                    //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+                    //Every particle has its own density which can be used to make the downward movement different for each flake
+                    //Lets make it more random by adding in the radius
+                    p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+                    p.x += Math.sin(angle) * 2;
+
+                    //Sending flakes back from the top when it exits
+                    //Lets make it a bit more organic and let flakes enter from the left and right also.
+                    if (p.x > W + 5 || p.x < -5 || p.y > H) {
+                        if (i % 3 > 0) //66.67% of the flakes
+                        {
+                            particles[i] = {x: Math.random() * W, y: -10, r: p.r, d: p.d};
+                        }
+                        else {
+                            //If the flake is exitting from the right
+                            if (Math.sin(angle) > 0) {
+                                //Enter from the left
+                                particles[i] = {x: -5, y: Math.random() * H, r: p.r, d: p.d};
+                            }
+                            else {
+                                //Enter from the right
+                                particles[i] = {x: W + 5, y: Math.random() * H, r: p.r, d: p.d};
+                            }
+                        }
+                    }
+                }
+            }
+
+            //animation loop
+            setInterval(draw, 33);
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">[SAND] That's No Tornado</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="wintersday.html">Wintersday Raffle</a></li>
+                <li><a href="calendar.html">Events</a></li>
+                <li><a href="dryTop.html">New to Dry Top?</a></li>
+                <li><a href="guildInfo.html">SAND Information</a></li>
+                <li><a href="social.html">Social</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<canvas id="canvas" style="display: block; position: absolute;"></canvas>
+
+<p>Whatever Moon Says</p>
+
+</body>
+</html>
