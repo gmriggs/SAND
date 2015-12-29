@@ -24,6 +24,10 @@ body {
     display: inline-block;
 }
 
+#dialog {
+    display: none;
+}
+
 .widget {
     margin: 50px;
 }
