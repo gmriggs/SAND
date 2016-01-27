@@ -54,6 +54,7 @@ Then click the Commit button. You should be able to then refresh the site and it
 4. Spruce up content on other pages, too
 5. Teamspeak info on social page -- Yay nay?
 6. Moon's chat templates on the Dry Top / Guild / Calendar / a new page?
+7. Site map
 
 ### Technical
 
