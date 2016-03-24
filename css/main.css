@@ -1,0 +1,18 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #EFE0B9;
+    color: #B7521E;
+}
+
+#calendar {
+    background-color: #E4B04A;
+}
+
+#dialog-box {
+    display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #643B0F;
+    align: center;
+}

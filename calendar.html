@@ -1,46 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
     <title>[SAND] Events</title>
 
-    <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png">
-    <meta name="description" content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
-    <meta name="keywords" content="GW2,Guild Wars 2,Dry Top,SAND,guild">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+    <link rel='icon' href='favicon.ico' sizes='16x16 32x32' type='image/png'>
+    <meta name='description' content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
+    <meta name='keywords' content='GW2,Guild Wars 2,Dry Top,SAND,guild'>
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.11.3.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300' type='text/css'>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+    <link rel='stylesheet' href='node_modules/jquery-ui-bundle/jquery-ui.min.css'>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel='stylesheet' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
 
-    <!-- Optional Bootstrap theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel='stylesheet' href='node_modules/fullcalendar/dist/fullcalendar.min.css'>
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='css/main.css'/>
+</head>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<body>
+<div class='container'>
+    <nav class='navbar navbar-default navbar-inverse'>
+        <div class='container-fluid'>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class='navbar-header'>
+                <button type='button'
+                        class='navbar-toggle collapsed'
+                        data-toggle='collapse'
+                        data-target='#navbar-collapse-1'
+                        aria-expanded='false'>
+                    <span class='sr-only'>Toggle navigation</span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                    <span class='icon-bar'></span>
+                </button>
+                <a class='navbar-brand' href='#'>[SAND] That's No Tornado</a>
+            </div>
 
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
-    <script src="js/konami.js"></script>
-    <script src="js/index.js"></script>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class='collapse navbar-collapse' id='navbar-collapse-1'>
+                <ul class='nav navbar-nav navbar-right'>
+                    <li><a href='index.html'>Home</a></li>
+                    <li><a href='calendar.html'>Events</a></li>
+                    <li><a href='dry-top-guide.html'>New to Dry Top?</a></li>
+                    <li><a href='about-us.html'>About the Guild</a></li>
+                    <li><a href='social.html'>Social</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class='col-xs-12 text-center'>
+        <h2>Event Calendar</h2>
+    </div>
+
+    <div class='col-xs-12 text-center'>
+        <p>Events are displayed in your local time!</p>
+    </div>
+
+    <div class='calendar col-xs-12'>
+        <div id='calendar'></div>
+    </div>
+
+    <script src='node_modules/jquery/dist/jquery.min.js'></script>
+    <script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
+    <script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
+
+    <script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+
+    <script src='node_modules/moment/min/moment-with-locales.min.js'></script>
+    <script src='node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
+
+    <script src='js/main.js'></script>
 
     <!--Calendar init-->
-    <script type="text/javascript">
+    <script type='text/javascript'>
         /*
          jQuery document ready
          */
@@ -53,287 +93,14 @@
                             right: 'month,agendaWeek,agendaDay'
                         },
                         timezone: 'local',
-                        /*defaultView: 'month',
-
-                         selectable:true will enable user to select datetime slot
-                         selectHelper will add helpers for selectable.
-                         */
                         selectable: true,
                         selectHelper: true,
-                        events: [
-                            //TODO: Add prior runs based off Twitter for historic data
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-14T02:00:00Z',
-                                end: '2015-10-14T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-17T02:00:00Z',
-                                end: '2015-10-17T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-20T01:00:00Z',
-                                end: '2015-10-20T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-10-23T01:00:00Z',
-                                end: '2015-10-23T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'HoT and Halloween Break',
-                                start: '2015-10-23T07:00:00Z',
-                                end: '2015-11-06T00:00:00Z',
-                                allDay: false,
-                                color: '#C9341C'
-                            },
-                            //TODO: Add that impulse Dry Top for event history
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-11T02:00:00Z', //11-10-2015 @ 6pm PST = 11-11-2015 @ 2am UTC
-                                end: '2015-11-11T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-16T02:00:00Z',
-                                end: '2015-11-16T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-20T02:00:00Z',
-                                end: '2015-11-20T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-23T02:00:00Z',
-                                end: '2015-11-23T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-11-29T02:00:00Z',
-                                end: '2015-11-29T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-12-04T01:00:00Z',
-                                end: '2015-12-04T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-12-06T01:00:00Z',
-                                end: '2015-12-06T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: '100th T6 Dry Top',
-                                start: '2015-12-012T02:00:00Z',
-                                end: '2015-12-012T07:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-12-16T01:00:00Z',
-                                end: '2015-12-16T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2015-12-21T02:00:00Z',
-                                end: '2015-12-21T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                //Recurring Guild Missions at 2:15pm PST Sundays
-                                title:"Guild Missions",
-                                start: '20:15',
-                                end: '20:45',
-                                dow: [ 1 ],
-                                color: '#00688B'
-                            },
-                            {
-                                //Recurring Guild Missions at 7:15pm PST Mondays
-                                title:"Guild Missions",
-                                start: '03:15',
-                                end: '03:45',
-                                dow: [ 2 ],
-                                color: '#00688B'
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-09T02:00:00Z',
-                                end: '2016-01-09T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-13T01:00:00Z',
-                                end: '2016-01-09T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-16T02:00:00Z',
-                                end: '2016-01-16T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-17T03:00:00Z',
-                                end: '2016-01-17T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-21T01:00:00Z',
-                                end: '2016-01-21T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-24T01:00:00Z',
-                                end: '2016-01-24T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-01-27T02:00:00Z',
-                                end: '2016-01-27T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-03T01:00:00Z',
-                                end: '2016-02-03T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-05T01:00:00Z',
-                                end: '2016-02-05T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-10T02:00:00Z',
-                                end: '2016-02-10T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-13T01:00:00Z',
-                                end: '2016-02-13T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-03-19T19:00:00Z',
-                                end: '2016-03-19T23:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-03-16T02:00:00Z',
-                                end: '2016-03-16T06:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-03-04T01:00:00Z',
-                                end: '2016-03-04T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-27T18:00:00Z',
-                                end: '2016-02-27T22:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-24T01:00:00Z',
-                                end: '2016-02-24T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-20T18:00:00Z',
-                                end: '2016-02-20T22:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-02-17T01:00:00Z',
-                                end: '2016-02-17T05:00:00Z',
-                                allDay: false
-                            },
-                            {
-                                title: 'T6 Dry Top',
-                                start: '2016-03-24T02:00:00Z',
-                                end: '2016-03-24T06:00:00Z',
-                                allDay: false
-                            }
-                        ],
+                        events: 'calendar/events.json',
                         eventBackgroundColor: '#2A2C05',
                         eventTextColor: '#EFE0B9'
                     });
         });
     </script>
-</head>
-<body>
-<!--
-<div id="dialog" title="Easter Egg">
-</div>
--->
-<nav class="navbar navbar-default navbar-inverse">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button"
-                    class="navbar-toggle collapsed"
-                    data-toggle="collapse"
-                    data-target="#navbar-collapse-1"
-                    aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">[SAND] That's No Tornado</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calendar.html">Events</a></li>
-                <li><a href="dryTop.html">New to Dry Top?</a></li>
-                <li><a href="guildInfo.html">SAND Information</a></li>
-                <li><a href="social.html">Social</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
-
-<h2>Event Calendar</h2>
-
-<p>Events are displayed in your local time!</p>
-
-<div class="calendar widget">
-    <div id="calendar" style="background-color:  #E4B04A;"></div>
 </div>
 </body>
 </html>

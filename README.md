@@ -7,7 +7,7 @@ A guild site for the Guild Wars 2 guild [SAND] - That's No Tornado
 
 ### Times
 
-Times for the calendar are in UTC, aka "GW2 server time".
+Times for the calendar are in UTC, aka "GW2 server time". UTC is also known as Zulu time, which is why times are in `Z` in the code. And keeping time in Z instead of PST or EST means not having to keep track of daylight savings.
 
 For instance:
 
@@ -28,18 +28,15 @@ Use an online time converter to know what the event time will be in UTC, and for
 
 ### File Location
 
-[Link](calendar.html)
-
-It's at calendar.html
+[Link](calendar/events.json)
 
 ### How To Edit
 
 Go to the above file and on the right side of the file click the pencil icon.
 
-Then copy and paste the example code at the bottom of the list of events, just editing the start and end times to be what you need.
-Current line to start editing at would be line `103`
+Then copy and paste the example code at the bottom of the list of events, second line from the end (aka not the `]`, above it), just editing the start and end times to be what you need.
 
-Then in the bottom of the page, write a description for what change you're making, like `Add an event`.
+Then in the bottom of the page, write a description for what change you're making, like the default `Update events.json`.
 Proper convention is to make the first word a present tense verb, and keep it short and sweet. The description is optional.
 
 Then click the Commit button. You should be able to then refresh the site and it'll be updated with the event!
@@ -48,19 +45,13 @@ Then click the Commit button. You should be able to then refresh the site and it
 
 ### Content
 
-1. Main page
-2. Guild info
-3. Rank info in guild page fo sho
-4. Spruce up content on other pages, too
-5. Teamspeak info on social page -- Yay nay?
-6. Moon's chat templates on the Dry Top / Guild / Calendar / a new page?
-7. Site map
+1. Moon's API key
+2. Moon's text files for content
+
+Sounds like someone needs to bug Moon some more... :sweat_smile:
 
 ### Technical
 
-1. E2E tests
-* Build status widget for the README
-* Move the rest of the code over to Bootstrap
-* Apple Easter Egg
-* Maybe figure out why materialize breaks with the calendar
-* Maybe some sort of CMS to make updating the site less intimidating
+1. Move code over to Bootstrap
+2. Apple Easter Egg
+3. Overhaul the site :innocent:

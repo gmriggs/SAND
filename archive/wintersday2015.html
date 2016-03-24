@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>[SAND] Wintersday Event</title>
+
+    <link rel="icon" href="../favicon.ico" sizes="16x16 32x32" type="image/png">
+    <meta name="description" content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
+    <meta name="keywords" content="GW2,Guild Wars 2,Dry Top,SAND,guild">
+
+    <!--<link rel="stylesheet" href="node_modules/roboto-font/fonts/Roboto/roboto-light-webfont.ttf">-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css">
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery-rss/dist/jquery.rss.min.js"></script>
+    <script src="../node_modules/jquery-ui-bundle/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/jquery-ui-bundle/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="../node_modules/moment/min/moment-with-locales.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    <script src="../js/main.js"></script>
+
+    <script>
+        //Snowflake code via http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect
+        window.onload = function () {
+            //canvas init
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            //canvas dimensions
+            var W = window.innerWidth;
+            var H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+
+            //snowflake particles
+            var mp = 25; //max particles
+            var particles = [];
+            for (var i = 0; i < mp; i++) {
+                particles.push({
+                    x: Math.random() * W, //x-coordinate
+                    y: Math.random() * H, //y-coordinate
+                    r: Math.random() * 4 + 1, //radius
+                    d: Math.random() * mp //density
+                })
+            }
+
+            //Lets draw the flakes
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.beginPath();
+                for (var i = 0; i < mp; i++) {
+                    var p = particles[i];
+                    ctx.moveTo(p.x, p.y);
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+                }
+                ctx.fill();
+                update();
+            }
+
+            //Function to move the snowflakes
+            //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+            var angle = 0;
+
+            function update() {
+                angle += 0.01;
+                for (var i = 0; i < mp; i++) {
+                    var p = particles[i];
+                    //Updating X and Y coordinates
+                    //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+                    //Every particle has its own density which can be used to make the downward movement different for each flake
+                    //Lets make it more random by adding in the radius
+                    p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+                    p.x += Math.sin(angle) * 2;
+
+                    //Sending flakes back from the top when it exits
+                    //Lets make it a bit more organic and let flakes enter from the left and right also.
+                    if (p.x > W + 5 || p.x < -5 || p.y > H) {
+                        if (i % 3 > 0) //66.67% of the flakes
+                        {
+                            particles[i] = {x: Math.random() * W, y: -10, r: p.r, d: p.d};
+                        }
+                        else {
+                            //If the flake is exitting from the right
+                            if (Math.sin(angle) > 0) {
+                                //Enter from the left
+                                particles[i] = {x: -5, y: Math.random() * H, r: p.r, d: p.d};
+                            }
+                            else {
+                                //Enter from the right
+                                particles[i] = {x: W + 5, y: Math.random() * H, r: p.r, d: p.d};
+                            }
+                        }
+                    }
+                }
+            }
+
+            //animation loop
+            setInterval(draw, 33);
+        }
+    </script>
+</head>
+<body>
+<!--
+<div id="dialog" title="Easter Egg">
+</div>
+-->
+
+<nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">[SAND] That's No Tornado</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="wintersday2015.html">2015 Wintersday Raffle</a></li>
+                <li><a href="../calendar.html">Events</a></li>
+                <li><a href="../dry-top-guide.html">New to Dry Top?</a></li>
+                <li><a href="../about-us.html">SAND Information</a></li>
+                <li><a href="../social.html">Social</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<canvas id="canvas" style="display: block; position: absolute;"></canvas>
+<div style="text-align: left; padding: 5em">
+    <h1 style="text-align: center">[SAND] Wintersday Raffle - 2015</h1>
+
+    <p>In celebration of Wintersday, there will be a raffle held at the end of December.
+        Participants will be in the running for three prizes of gold or the grand prize:</p>
+
+    <ul style="list-style-type: none;">
+        <li style="margin-left: 5em; text-indent: -5em;">
+            Grand Prize:<br/>
+            <img src="http://wiki.guildwars2.com/images/thumb/e/e5/Azimuth.png/40px-Azimuth.png"><br/>
+            Azimuth, exotic Staff with Berserker stats<br/>
+            Estimated value of 50 gold
+        </li>
+        <li style="margin-left: 5em; text-indent: -5em;">
+            First Place:<br/>
+            25 gold
+        </li>
+        <li style="margin-left: 5em; text-indent: -5em;">
+            Second Place:<br/>
+            20 gold
+        </li>
+        <li style="margin-left: 5em; text-indent: -5em;">
+            Third Place:<br/>
+            15 gold
+        </li>
+    </ul>
+
+    <p>This raffle is a way for all of us to experience the generosity and joy of Wintersday
+        as well as being an easy way to help build our Guild Hall a little more.
+        We're only a couple of months into Heart of Thorns, and already we have a Lv25 Guild Hall
+        with fully upgraded bonuses and some great vendors and synthesizers for guild members.
+        [SAND] has truly become an amazing group of people who continue to help bring an encouraging and productive Dry
+        Top
+        experience to the GW2 community.
+        It is my hope that this raffle can serve as just one of many ways for me to express my gratitude to all of you
+        here
+        at [SAND]. I believe that entries based on donations are the fairest way to gauge participants
+        and it fits with the theme of Wintersday.
+    </p>
+
+    <hr/>
+
+    <h4 style="text-align: center">One thing to keep in mind</h4>
+
+    <p>These prizes are coming from my own funds.
+        No donations of gold from the past or present have been used to add to the pot
+        unless the donator specifically requested it.
+        Any gold donations from members and non-members go toward funding our Dry Top runs with trays of food
+        and Heroes Banners, our Guild Hall, or our Guild Scribe.</p>
+
+    <hr/>
+
+    <h3 style="text-align: center">Rules and Stipulations</h3>
+
+    <ol>
+        <li>If you have donated in the past according to the below specifications going back to November 7th,
+            you are already eligible and a participant in the raffle!
+            This rule has been set in place to protect those who have in some cases donated hundreds of gold in items
+            over the last month and a half.
+        </li>
+
+        <li>Piles of Flax Seeds totalling 25 or more and Piles of Coarse Sand totalling 50 or more count as donations.
+        </li>
+
+        <li>Gold donations of two (2) gold or more count as a donation.</li>
+
+        <li>Heart of Thorns decorations and account-bound items count as a donation.</li>
+
+        <li>You do not need to donate all at once! Your donations are tracked in a spreadsheet.</li>
+
+        <li>Please mail <strong>Muirellthe Moon</strong> gold, Piles of Flax Seeds, or Piles of Coarse Sand.
+            Please keep in mind that my mailbox gets full, so I may not respond right away.
+            The Guild Treasury inside the Guild Hall will show everything we currently have and need for the Guild Hall.
+            Please check it for what you can donate, and remember - as we unlock further upgrades and
+            increase our Guild Hall level, more items become available as donations.
+        </li>
+
+        <li>The prizes will be raffled in descending order (Azimuth, 25, 20, and then 15 gold.)
+            If you win one prize, you will no longer be eligible for another.
+        </li>
+    </ol>
+
+    <p>This raffle will officially end on December 31st at 11:59 pm PST.
+        The winners will be decided via a random number generator and announced by January 2nd, 2016.</p>
+
+    <p>Those who are already presently eligible will be notified in the days ahead!</p>
+
+    <h2 style="text-align: center">A very Merry Wintersday to all!</h2>
+</div>
+</body>
+</html>
