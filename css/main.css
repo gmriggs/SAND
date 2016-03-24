@@ -1,7 +1,4 @@
 body {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 14px;
     font-family: 'Roboto', sans-serif;
     background-color: #EFE0B9;
     color: #B7521E;
@@ -11,55 +8,11 @@ body {
     background-color: #E4B04A;
 }
 
-#twitter-box {
-    float: left;
-    width: 50%;
-}
-
-#reddit-box {
-    float: right;
-    width: 50%;
-}
-
-#guild-logo {
-    width: 256px;
-    height: 256px;
-    float: left;
-    vertical-align: middle;
-}
-
-#guild-name {
-    float: right;
-    line-height: 256px;
-    vertical-align: middle;
-}
-
-#logo-box {
-    display: inline-block;
-}
-
 #dialog-box {
     display: none;
-}
-
-.widget {
-    margin: 50px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #643B0F;
     align: center;
-}
-
-th {
-    text-align: center;
-}
-
-td {
-    text-align: left;
-}
-
-table {
-    height: 50%;
-    width: 50%;
 }
