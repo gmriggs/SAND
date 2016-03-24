@@ -24,7 +24,6 @@
     "jquery-rss": "^3.2.1",
     "jquery-ui-bundle": "^1.11.4",
     "konami": "^1.3.3",
-    "moment": "^2.12.0",
-    "roboto-font": "^0.1.0"
+    "moment": "^2.12.0"
   }
 }
