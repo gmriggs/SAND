@@ -23,8 +23,8 @@
 </head>
 
 <body>
-<div class='container'>
-    <nav class='navbar navbar-default navbar-inverse'>
+<nav class='navbar navbar-inverse navbar-static-top'>
+    <div class='container'>
         <div class='container-fluid'>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class='navbar-header'>
@@ -54,8 +54,10 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
-    </nav>
+    </div>
+</nav>
 
+<div class='container'>
     <div class='col-xs-12 text-center'>
         <h2>Event Calendar</h2>
     </div>
@@ -67,40 +69,41 @@
     <div class='calendar col-xs-12'>
         <div id='calendar'></div>
     </div>
-
-    <script src='node_modules/jquery/dist/jquery.min.js'></script>
-    <script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
-    <script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
-
-    <script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
-
-    <script src='node_modules/moment/min/moment-with-locales.min.js'></script>
-    <script src='node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
-
-    <script src='js/main.js'></script>
-
-    <!--Calendar init-->
-    <script type='text/javascript'>
-        /*
-         jQuery document ready
-         */
-        $(document).ready(function () {
-            var calendar = $('#calendar').fullCalendar(
-                    {
-                        header: {
-                            left: 'prev,next today',
-                            center: 'title',
-                            right: 'month,agendaWeek,agendaDay'
-                        },
-                        timezone: 'local',
-                        selectable: true,
-                        selectHelper: true,
-                        events: 'calendar/events.json',
-                        eventBackgroundColor: '#2A2C05',
-                        eventTextColor: '#EFE0B9'
-                    });
-        });
-    </script>
 </div>
+
+<script src='node_modules/jquery/dist/jquery.min.js'></script>
+<script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
+<script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
+
+<script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+
+<script src='node_modules/moment/min/moment-with-locales.min.js'></script>
+<script src='node_modules/fullcalendar/dist/fullcalendar.min.js'></script>
+
+<script src='js/main.js'></script>
+
+<!--Calendar init-->
+<script type='text/javascript'>
+    /*
+     jQuery document ready
+     */
+    $(document).ready(function () {
+        var calendar = $('#calendar').fullCalendar(
+                {
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    timezone: 'local',
+                    selectable: true,
+                    selectHelper: true,
+                    events: 'calendar/events.json',
+                    eventBackgroundColor: '#2A2C05',
+                    eventTextColor: '#EFE0B9'
+                });
+    });
+</script>
+
 </body>
 </html>

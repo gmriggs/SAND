@@ -11,8 +11,7 @@
     <meta name='description' content="A website for information on the Guild Wars 2 guild [SAND] - That's No Tornado">
     <meta name='keywords' content='GW2,Guild Wars 2,Dry Top,SAND,guild'>
 
-    <!--<link rel='stylesheet' href='node_modules/roboto-font/fonts/Roboto/roboto-light-webfont.ttf'>-->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300' type='text/css'>
 
     <link rel='stylesheet' href='node_modules/jquery-ui-bundle/jquery-ui.min.css'>
 
@@ -22,15 +21,15 @@
 </head>
 
 <body>
-<div class='container'>
-    <div id='dialog-box' title='Easter Egg'>
-        <!--Don't judge me-->
-        <h1>HONOR WOLF AND FUCK SHIT UP</h1>
-        <h2 style='font-style: italic;'>~rockerchu.8306</h2>
-        <img src='https://38.media.tumblr.com/37db10464bc0359546c31a598dd6235b/tumblr_mzv55e76pe1s4jcmao1_500.gif'/>
-    </div>
+<div id='dialog-box' title='Easter Egg'>
+    <!--Don't judge me-->
+    <h1>HONOR WOLF AND FUCK SHIT UP</h1>
+    <h2 style='font-style: italic;'>~rockerchu.8306</h2>
+    <img src='https://38.media.tumblr.com/37db10464bc0359546c31a598dd6235b/tumblr_mzv55e76pe1s4jcmao1_500.gif'/>
+</div>
 
-    <nav class='navbar navbar-default navbar-inverse'>
+<nav class='navbar navbar-inverse navbar-static-top'>
+    <div class='container'>
         <div class='container-fluid'>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class='navbar-header'>
@@ -60,8 +59,10 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
-    </nav>
+    </div>
+</nav>
 
+<div class='container'>
     <div class='col-sm-6'>
         <div class='text-center'>
             <h2>Follow us on Twitter!</h2>
@@ -85,43 +86,43 @@
     <div class='col-sm-6'>
         <div class='text-center'>
             <h2>Subscribe to our subreddit!</h2>
-            <p><span class='glyphicon glyphicon-alert'></span>  Note: this takes a while to load ;.;</p>
+            <p><span class='glyphicon glyphicon-alert'></span> Note: this takes a while to load ;.;</p>
         </div>
         <div id='reddit-feed'></div>
     </div>
-
-    <script src='node_modules/jquery/dist/jquery.min.js'></script>
-    <script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
-    <script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
-
-    <script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
-
-    <script src='node_modules/moment/min/moment-with-locales.min.js'></script>
-    <script src='js/main.js'></script>
-
-    <!--Populate Twitter widget-->
-    <script>
-        !function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-            if (!d.getElementById(id)) {
-                js = d.createElement(s);
-                js.id = id;
-                js.src = p + '://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }
-        }(document, 'script', 'twitter-wjs');
-    </script>
-
-    <!--Populate reddit RSS feed-->
-    <script>
-        jQuery(function ($) {
-            $('#reddit-feed').rss('https://www.reddit.com/r/minionsofmoondremoth/.rss',
-                    {
-                        entryTemplate: "<a href='{url}'><h3>{title}</h3><h4>{date}</h4></a><p>{body}</p>"
-                    }
-            )
-        })
-    </script>
 </div>
+
+<script src='node_modules/jquery/dist/jquery.min.js'></script>
+<script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
+<script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
+
+<script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+
+<script src='node_modules/moment/min/moment-with-locales.min.js'></script>
+<script src='js/main.js'></script>
+
+<!--Populate Twitter widget-->
+<script>
+    !function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+</script>
+
+<!--Populate reddit RSS feed-->
+<script>
+    jQuery(function ($) {
+        $('#reddit-feed').rss('https://www.reddit.com/r/minionsofmoondremoth/.rss',
+                {
+                    entryTemplate: "<a href='{url}'><h3>{title}</h3><h4>{date}</h4></a><p>{body}</p>"
+                }
+        )
+    })
+</script>
 </body>
 </html>
