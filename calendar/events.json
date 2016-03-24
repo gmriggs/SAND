@@ -226,6 +226,7 @@
     "title": "Verdant Brink",
     "start": "2016-03-26T19:00:00Z",
     "end": "2016-03-26T23:00:00Z",
-    "allDay": false
+    "allDay": false,
+    "color": "#355E3B"
   }
 ]
