@@ -1,15 +1,18 @@
 $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/log?access_token=B2A35DED-9550-7044-9B1D-A0676E03384D3AD9486C-73ED-435F-9258-2FB2BA53F035', function (data) {
     var messages = [];
+    var chatLinks = [];
+    var itemIDs = [];
+    var itemNames = [];
     var mostRecentMessage;
 
-    data.forEach(function(logItem){
-        if(logItem.type == 'motd'){
+    data.forEach(function (logItem) {
+        if (logItem.type == 'motd') {
             messages.push(logItem.motd);
         }
     });
-    
+
     mostRecentMessage = messages[0];
-    
+
     //Replace the line breaks in the message response with break tags
     mostRecentMessage = mostRecentMessage.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
@@ -25,7 +28,27 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
     var ts3Replace = /(^|[^\/])(ts3\.[\S]+(\b|$))/gim;
     mostRecentMessage = mostRecentMessage.replace(ts3Replace, '$1<a href="http://$2" target="_blank">$2</a>');
 
-    //todo handle chat links
+    //Handle GW2 chat codes by turning them into item names
+    chatLinks = mostRecentMessage.match(/\[&Ag([\w]+)\]/gm);
 
-    $("#motd").html(mostRecentMessage);
+    chatLinks.forEach(function (chatCode) {
+        //Via darthmaim, converts chat code item to item id
+        var data = atob(chatCode.match(/^\[&(.*)\]$/)[1])
+                .split('')
+                .map(c => c.charCodeAt());
+        var id = data[3] << 8 | data[2];
+        itemIDs.push((data.length > 4 ? data[4] << 16 : 0) | id);
+    });
+
+    itemIDs.forEach(function (id, index) {
+        //get item info from API via item id created above
+        $.get('https://api.guildwars2.com/v2/items/' + id, function (data) {
+            itemNames.push(data.name);
+
+            //Replace chat links with item names
+            mostRecentMessage = mostRecentMessage.replace(chatLinks[index], itemNames[index]);
+
+            $("#motd").html(mostRecentMessage);
+        });
+    });
 }, "json");
