@@ -106,9 +106,6 @@ jspm_packages
 
 /node_modules/bower
 
-/node_modules/datatables.net/package.json
-/node_modules/datatables.net/Readme.md
-
 /node_modules/fullcalendar/package.json
 /node_modules/fullcalendar/CONTRIBUTING.md
 /node_modules/fullcalendar/README.md
