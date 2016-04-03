@@ -40,18 +40,3 @@ Then in the bottom of the page, write a description for what change you're makin
 Proper convention is to make the first word a present tense verb, and keep it short and sweet. The description is optional.
 
 Then click the Commit button. You should be able to then refresh the site and it'll be updated with the event!
-
-## To Do List
-
-### Content
-
-1. Moon's API key
-2. Moon's text files for content
-
-Sounds like someone needs to bug Moon some more... :sweat_smile:
-
-### Technical
-
-1. Move code over to Bootstrap
-2. Apple Easter Egg
-3. Overhaul the site :innocent:
