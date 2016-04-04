@@ -1,9 +1,10 @@
+var mostRecentMessage;
+
 $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/log?access_token=B2A35DED-9550-7044-9B1D-A0676E03384D3AD9486C-73ED-435F-9258-2FB2BA53F035', function (data) {
     var messages = [];
     var chatLinks = [];
     var itemIDs = [];
     var itemNames = [];
-    var mostRecentMessage;
 
     data.forEach(function (logItem) {
         if (logItem.type == 'motd') {
@@ -15,7 +16,7 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
 
     //Replace the line breaks in the message response with break tags
     mostRecentMessage = mostRecentMessage.replace(/(?:\r\n|\r|\n)/g, '<br />');
-    
+
     //Remove guild meeting notes link
     mostRecentMessage = mostRecentMessage.replace(/(http:\/\/tinyurl\.com\/z5grl3j)/, '<span class="glyphicon glyphicon-remove-sign"></span>');
 
@@ -50,7 +51,7 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
 
             //Replace chat links with item names
             mostRecentMessage = mostRecentMessage.replace(chatLinks[index], itemNames[index]);
-
+        }).then(function () {
             $("#motd").html(mostRecentMessage);
         });
     });
