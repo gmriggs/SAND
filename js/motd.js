@@ -17,8 +17,8 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
     //Replace the line breaks in the message response with break tags
     mostRecentMessage = mostRecentMessage.replace(/(?:\r\n|\r|\n)/g, '<br />');
 
-    //Remove guild meeting notes link
-    mostRecentMessage = mostRecentMessage.replace(/(http:\/\/tinyurl\.com\/z5grl3j)/, '<span class="glyphicon glyphicon-remove-sign"></span>');
+    //Remove guild meeting notes line
+    mostRecentMessage = mostRecentMessage.replace(/(<br \/>){1}[^>]*meeting.*notes[^>]*(<br \/>){1}/gim, '');
 
     //Add links to urls starting with http or https
     var httpReplace = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
