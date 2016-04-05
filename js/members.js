@@ -70,6 +70,7 @@ $.get(
 
         $("#leader-info").html(leaderCode);
         $('#officer-info').html(officerCode);
+        $('#member-count').html(data.length);
     },
     "json"
 );
