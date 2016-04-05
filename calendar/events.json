@@ -1,19 +1,19 @@
 [
   {
-    "title": "Guild Missions",
-    "start": "20:15",
-    "end": "20:45",
+    "title": "PST - Guild Missions",
+    "start": "14:15:00",
+    "end": "14:45:00",
     "dow": [
-      1
+      0
     ],
     "color": "#00688B"
   },
   {
-    "title": "Guild Missions",
-    "start": "03:15",
-    "end": "03:45",
+    "title": "PST - Guild Missions",
+    "start": "19:15:00",
+    "end": "19:45:00",
     "dow": [
-      2
+      1
     ],
     "color": "#00688B"
   },
@@ -239,6 +239,12 @@
     "title": "T6 Dry Top",
     "start": "2016-04-02T02:00:00Z",
     "end": "2016-04-02T03:00:00Z",
+    "allDay": false
+  },
+  {
+    "title": "T6 Dry Top",
+    "start": "2016-04-06T02:00:00Z",
+    "end": "2016-04-06T06:00:00Z",
     "allDay": false
   }
 ]
