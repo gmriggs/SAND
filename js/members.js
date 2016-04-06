@@ -20,6 +20,8 @@ var commonName = function(name) {
             return 'Zaidaan Wolfe';
         case 'Caliber.9237':
             return 'Major Caliber';
+        case 'Arithmancer.5307':
+            return 'Dancira';
     }
 };
 
@@ -28,6 +30,7 @@ $.get(
     function (data) {
         var leaderCode = '';
         var officerCode = '';
+        var webDevCode = '';
 
         data.forEach(function (member) {
             //todo don't hard code rank names -- this is rank.order 1-4
@@ -66,10 +69,20 @@ $.get(
                     "<h4>"+ commonName(member.name) +"</h4>" +
                     "</div>"
                 : '';
+
+            member.name === 'Arithmancer.5307' ?
+                webDevCode = webDevCode +
+                    "<div class='col-xs-12'>" +
+                    "<h2>" + member.name + "</h2>" +
+                    "<p>" + member.rank + "</p>" +
+                    "<h4>"+ commonName(member.name) +"</h4>" +
+                    "</div>"
+                : '';
         });
 
         $("#leader-info").html(leaderCode);
         $('#officer-info').html(officerCode);
+        $('#web-dev').html(webDevCode);
         $('#member-count').html(data.length);
     },
     "json"
