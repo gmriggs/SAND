@@ -47,7 +47,7 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
     itemIDs.forEach(function (id, index) {
         //get item info from API via item id created above
         $.get('https://api.guildwars2.com/v2/items/' + id, function (data) {
-            itemNames.push(data.name);
+            itemNames[index] = data.name;
 
             //Replace chat links with item names
             mostRecentMessage = mostRecentMessage.replace(chatLinks[index], itemNames[index]);
