@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/DryTopSAND/SAND/issues"
   },
-  "homepage": "https://drytopsand.github.io/SAND/",
+  "homepage": "drytopsand.com",
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bower": "^1.7.7",
