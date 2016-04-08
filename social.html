@@ -101,20 +101,20 @@
     <div class='col-sm-6'>
         <div class='text-center'>
             <h2>Subscribe to our subreddit!</h2>
-            <p><span class='glyphicon glyphicon-alert'></span> Note: this takes a while to load ;.;</p>
+            <h3><a href="www.reddit.com/r/minionsofmoondremoth">/r/MinionsOfMoondremoth</a></h3>
         </div>
         <div id='reddit-feed'></div>
     </div>
 </div>
 
 <script src='node_modules/jquery/dist/jquery.min.js'></script>
-<script src='node_modules/jquery-rss/dist/jquery.rss.min.js'></script>
 <script src='node_modules/jquery-ui-bundle/jquery-ui.min.js'></script>
 
 <script src='node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
 
 <script src='node_modules/moment/min/moment-with-locales.min.js'></script>
 <script src='js/main.js'></script>
+<script src="js/subreddit.js"></script>
 
 <!--Populate Twitter widget-->
 <script>
@@ -127,18 +127,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }
     }(document, 'script', 'twitter-wjs');
-</script>
-
-<!--Populate reddit RSS feed-->
-<script>
-    jQuery(function ($) {
-        $('#reddit-feed').rss('http://www.reddit.com/r/minionsofmoondremoth/.rss',
-                {
-                    ssl: true,
-                    entryTemplate: "<a href='{url}'><h3>{title}</h3><h4>{date}</h4></a><p>{body}</p>"
-                }
-        )
-    })
 </script>
 
 <script>
