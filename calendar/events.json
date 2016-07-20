@@ -318,5 +318,47 @@
     "start": "2016-07-13T18:00:00-07:00",
     "end": "2016-07-13T22:00:00-07:00",
     "allDay": false
+  },
+  {
+    "title": "1 year anniversary T6 Dry Top",
+    "start": "2016-07-21T18:00:00-07:00",
+    "end": "2016-07-21T21:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "Prospect Valley Crash Site Jumping Puzzle",
+    "start": "2016-07-22T18:00:00-07:00",
+    "end": "2016-07-22T19:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "Dive Master Contest",
+    "start": "2016-07-22T19:00:00-07:00",
+    "end": "2016-07-22T20:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "T6 Dry Top",
+    "start": "2016-07-23T11:00:00-07:00",
+    "end": "2016-07-23T13:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "Dry Top-themed Outfit contest",
+    "start": "2016-07-23T14:00:00-07:00",
+    "end": "2016-07-23T15:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "Hide & Go Seek",
+    "start": "2016-07-24T12:00:00-07:00",
+    "end": "2016-07-24T14:00:00-07:00",
+    "allDay": false
+  },
+  {
+    "title": "Group Picture",
+    "start": "2016-07-24T14:30:00-07:00",
+    "end": "2016-07-24T15:00:00-07:00",
+    "allDay": false
   }
 ]
