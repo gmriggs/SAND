@@ -7,7 +7,7 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
   var itemNames = [];
 
   data.forEach(function(logItem) {
-    if (logItem.type == 'motd') {
+    if (logItem.type === 'motd') {
       messages.push(logItem.motd);
     }
   });

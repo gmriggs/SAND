@@ -1,89 +1,51 @@
+var guildId = '239F7382-9E2F-E511-A5A9-AC162DAE5A05';
+var token = 'B2A35DED-9550-7044-9B1D-A0676E03384D3AD9486C-73ED-435F-9258-2FB2BA53F035';
+
 var commonName = function(name) {
-    switch(name) {
-        case 'Zekowah.6480':
-            return 'Muirellthe Moon';
-        case 'memattm.1469':
-            return 'Eldrazzi';
-        case 'Finix.8672':
-            return 'Allisandra';
-        case 'ArcticRose.5280':
-            return 'Rosie Arrow';
-        case 'trumpetman.3028':
-            return 'Stel Edelweiss';
-        case 'glehmann.9586':
-            return 'Victoria Arcwright';
-        case 'Peregrinari.5906':
-            return 'Ciannali';
-        case 'Kolya.8032':
-            return 'Kolya Mistiyani';
-        case 'PwnedbyJuice.9738':
-            return 'Zaidaan Wolfe';
-        case 'Caliber.9237':
-            return 'Major Caliber';
-        case 'Arithmancer.5307':
-            return 'Dancira';
-    }
+  var accounts = {
+    'Zekowah.6480': 'Muirellthe Moon',
+    'memattm.1469': 'Eldrazzi',
+    'Finix.8672': 'Allisandra',
+    'ArcticRose.5280': 'Rosie Arrow',
+    'trumpetman.3028': 'Stel Edelweiss',
+    'glehmann.9586': 'Victoria Arcwright',
+    'Peregrinari.5906': 'Ciannali',
+    'Kolya.8032': 'Kolya Mistiyani',
+    'PwnedbyJuice.9738': 'Zaidaan Wolfe',
+    'Caliber.9237': 'Major Caliber',
+    'Arithmancer.5307': 'Dancira'
+  };
+
+  return accounts[name] ? accounts[name] : '';
 };
 
-$.get(
-    'https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/members?access_token=B2A35DED-9550-7044-9B1D-A0676E03384D3AD9486C-73ED-435F-9258-2FB2BA53F035',
-    function (data) {
-        var leaderCode = '';
-        var officerCode = '';
-        var webDevCode = '';
+$.get('https://api.guildwars2.com/v2/guild/' + guildId + '/members?access_token=' + token, function(data) {
+  var leaderCode = '';
+  var officerCode = '';
+  var webDevCode = '';
+  var memberCode = function(member) {
+    return "<div class='col-xs-6 col-md-4'>" +
+        "<h2>" + member.name + "</h2>" +
+        "<p>" + member.rank + "</p>" +
+        "<h4>" + commonName(member.name) + "</h4>" +
+        "</div>"
+  };
 
-        data.forEach(function (member) {
-            //todo don't hard code rank names -- this is rank.order 1-4
-            member.rank === 'Moondremoth' ?
-                leaderCode = leaderCode +
-                    "<div class='col-xs-12'>" +
-                    "<h2>" + member.name + "</h2>" +
-                    "<p>" + member.rank + "</p>" +
-                    "<h4>"+ commonName(member.name) +"</h4>" +
-                    "</div>"
-                : '';
+  data.forEach(function(member) {
+    //todo don't hard code rank names -- this is rank.order 1 && rank.order 2-4
+    leaderCode = leaderCode +
+        (member.rank === 'Moondremoth' ? memberCode(member) : '');
 
-            member.rank === 'Dragon Champion' ?
-                officerCode = officerCode +
-                    "<div class='col-xs-6 col-md-4'>" +
-                    "<h2>" + member.name + "</h2>" +
-                    "<p>" + member.rank + "</p>" +
-                    "<h4>"+ commonName(member.name) +"</h4>" +
-                    "</div>"
-                : '';
+    officerCode = officerCode +
+        ((member.rank === 'Dragon Champion' || member.rank === 'Aspect Master' || member.rank === 'Death God') ?
+            memberCode(member) : '');
 
-            member.rank === 'Aspect Master' ?
-                officerCode = officerCode +
-                    "<div class='col-xs-6 col-md-4'>" +
-                    "<h2>" + member.name + "</h2>" +
-                    "<p>" + member.rank + "</p>" +
-                    "<h4>"+ commonName(member.name) +"</h4>" +
-                    "</div>"
-                : '';
+    webDevCode = webDevCode +
+        (member.name === 'Arithmancer.5307' ? memberCode(member) : '');
+  });
 
-            member.rank === 'Death God' ?
-                officerCode = officerCode +
-                    "<div class='col-xs-6 col-md-4'>" +
-                    "<h2>" + member.name + "</h2>" +
-                    "<p>" + member.rank + "</p>" +
-                    "<h4>"+ commonName(member.name) +"</h4>" +
-                    "</div>"
-                : '';
-
-            member.name === 'Arithmancer.5307' ?
-                webDevCode = webDevCode +
-                    "<div class='col-xs-12'>" +
-                    "<h2>" + member.name + "</h2>" +
-                    "<p>" + member.rank + "</p>" +
-                    "<h4>"+ commonName(member.name) +"</h4>" +
-                    "</div>"
-                : '';
-        });
-
-        $("#leader-info").html(leaderCode);
-        $('#officer-info').html(officerCode);
-        $('#web-dev').html(webDevCode);
-        $('#member-count').html(data.length);
-    },
-    "json"
-);
+  $("#leader-info").html(leaderCode);
+  $('#officer-info').html(officerCode);
+  $('#web-dev').html(webDevCode);
+  $('#member-count').html(data.length);
+}, "json");
