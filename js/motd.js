@@ -20,6 +20,9 @@ $.get('https://api.guildwars2.com/v2/guild/239F7382-9E2F-E511-A5A9-AC162DAE5A05/
   //Remove guild meeting notes line
   mostRecentMessage = mostRecentMessage.replace(/<br \/>[^>]*meeting.*notes[^>]*<br \/>/gim, '');
 
+  //Remove guild meeting line
+  mostRecentMessage = mostRecentMessage.replace(/<br \/>[^>]*sandmeeting[^>]*<br \/>/gim, '');
+
   //Add links to urls starting with http or https
   var httpReplace = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
   mostRecentMessage = mostRecentMessage.replace(httpReplace, '<a href="$1" target="_blank">$1</a>');
