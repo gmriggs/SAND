@@ -1,3 +1,4 @@
+/*
 //Snowflake code via http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect
 window.onload = function () {
   //canvas init
@@ -77,3 +78,4 @@ window.onload = function () {
   //animation loop
   setInterval(draw, 33);
 };
+*/
