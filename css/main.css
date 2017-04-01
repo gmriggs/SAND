@@ -17,3 +17,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #643B0F;
     align: center;
 }
+
+body {
+    -webkit-transform: rotate(3deg);
+    -webkit-filter: blur(1px);
+}
