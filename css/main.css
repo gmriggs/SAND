@@ -1,5 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font: 1.6em "Roboto";
     background-color: #EFE0B9;
     color: #B7521E;
     margin-bottom: 5%;
@@ -15,7 +18,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #643B0F;
-    align: center;
+    text-align: center;
+}
+
+nav > li {
+    border: 1px #B7521E;
 }
 
 /* April Fools CSS */
@@ -25,3 +32,47 @@ body {
     -webkit-filter: blur(1px);
 }
 */
+
+/* Marquee */
+/* Original source: https://jsfiddle.net/jonathansampson/xxuxd/ */
+.marquee {
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee:hover {
+    animation-play-state: paused
+}
+
+@keyframes marquee {
+    0%   { text-indent: 75% }
+    100% { text-indent: -125% }
+}
+/* end jsfiddle */
+
+/* Pixel Font and Borders */
+/* Original source: https://codepen.io/albpara/pen/xDBvc/ */
+/*body {
+    margin: 1em;
+    font: 1.4em "Press start 2P";
+    font-weight: 500;
+    line-height: 300%;
+}*/
+
+.sab-box {
+    box-sizing: border-box;
+    box-shadow: 5px 0 #EFE0B9, -5px 0 #EFE0B9, 0 -5px #EFE0B9, 0 5px #EFE0B9, 
+    10px 0 #EFE0B9, -10px 0 #EFE0B9, 0 -10px #EFE0B9, 0 10px #EFE0B9, 
+    0 0 0 5px #EFE0B9, 15px 0 #EFE0B9, -15px 0 #EFE0B9, 0 15px #EFE0B9, 
+    0 -15px #EFE0B9, 0 -5px 0 5px #EFE0B9, 0 5px 0 5px #EFE0B9, 5px 0 0 5px #EFE0B9, 
+    -5px 0 0 5px #EFE0B9, 
+    20px 0 #643B0F, -20px 0 #643B0F, 0 -20px #643B0F, 0 20px #643B0F, 
+    10px 0 0 5px #643B0F, -10px 0 0 5px #643B0F, 0 10px 0 5px #643B0F, 0 -10px 0 5px #643B0F, 
+    0 0 0 10px #643B0F;
+    margin: 20px auto;
+}
+/* end codepen */

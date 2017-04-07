@@ -4,15 +4,17 @@ var token = 'B2A35DED-9550-7044-9B1D-A0676E03384D3AD9486C-73ED-435F-9258-2FB2BA5
 var commonName = function(name) {
   var accounts = {
     'Zekowah.6480': 'Muirellthe Moon',
-    'memattm.1469': 'Eldrazzi',
-    'Finix.8672': 'Allisandra',
-    'ArcticRose.5280': 'Rosie Arrow',
     'trumpetman.3028': 'Stel Edelweiss',
     'glehmann.9586': 'Victoria Arcwright',
+    'Irrell.3524': '',
     'Peregrinari.5906': 'Ciannali',
+    'Finix.8672': 'Allisandra',
     'Kolya.8032': 'Kolya Mistiyani',
-    'PwnedbyJuice.9738': 'Zaidaan Wolfe',
-    'Caliber.9237': 'Major Caliber',
+    'Aeraki Baer.5238': 'Sand Panda Commanda',
+    'PwnedbyJuice.9738': 'Amesart Wolfe',
+    // 'memattm.1469': 'Eldrazzi',
+    // 'ArcticRose.5280': 'Rosie Arrow',
+    // 'Caliber.9237': 'Major Caliber',
     'Arithmancer.5307': 'Dancira'
   };
 
@@ -24,7 +26,7 @@ $.get('https://api.guildwars2.com/v2/guild/' + guildId + '/members?access_token=
   var officerCode = '';
   var webDevCode = '';
   var memberCode = function(member) {
-    return "<div class='col-xs-6 col-md-4'>" +
+    return "<div class='col-xs-6 col-md-6'>" +
         "<h2>" + member.name + "</h2>" +
         "<p>" + member.rank + "</p>" +
         "<h4>" + commonName(member.name) + "</h4>" +
