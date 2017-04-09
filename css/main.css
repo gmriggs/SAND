@@ -59,12 +59,12 @@ body {
 
 /* Pixel Font and Borders */
 /* Original source: https://codepen.io/albpara/pen/xDBvc/ */
-/*body {
+.sab {
     margin: 1em;
     font: 1.4em "Press start 2P";
     font-weight: 500;
     line-height: 300%;
-}*/
+}
 
 .sab-box {
     box-sizing: border-box;
