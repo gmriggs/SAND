@@ -72,12 +72,11 @@
     </div>
 
     <div class='col-xs-12 text-center'>
-        <p>Dry Top events are displayed in your local time!</p>
-        <h6>Guild Mission times are in PST</h6>
+        <h6>Events are in PST</h6>
     </div>
 
     <div class='calendar col-xs-12'>
-        <div id='calendar'></div>
+        <iframe src="https://calendar.google.com/calendar/embed?showPrint=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffcc00&amp;src=60riued8ncl42tntbgr0h7k2e0%40group.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
 </div>
 
@@ -91,33 +90,7 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment-with-locales.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.0.1/fullcalendar.min.js'></script>
-
 <script src='js/main.js'></script>
-
-<!--Calendar init-->
-<script type='text/javascript'>
-    /*
-     jQuery document ready
-     */
-    $(document).ready(function() {
-      var calendar = $('#calendar').fullCalendar(
-          {
-            header: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'month,agendaWeek,agendaDay'
-            },
-            timezone: 'local',
-            selectable: true,
-            selectHelper: true,
-            events: 'calendar/events.json',
-            eventBackgroundColor: '#2A2C05',
-            eventTextColor: '#EFE0B9'
-          });
-    });
-</script>
 
 <script>
   (function(i, s, o, g, r, a, m) {
