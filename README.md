@@ -6,25 +6,7 @@ A guild site for the Guild Wars 2 guild [SAND] - That's No Tornado
 
 ## How to Update the Calendar
 
-### Times
-
-Times for the calendar are in UTC, aka "GW2 server time". UTC is also known as Zulu time, which is why times are in `Z` in the code. And keeping time in Z instead of PST or EST means not having to keep track of daylight savings.
-
-For instance:
-
-`"start": "2015-11-11T02:00:00Z",` means the event starts at 11/11/2015 @ 2am UTC, which is 11/10/2015 @ 6pm PST.
-
-Use an online time converter to know what the event time will be in UTC, and format it like the current events:
-
-```
-,
-{
-    "title": "T6 Dry Top",
-    "start": "2015-11-11T02:00:00Z",
-    "end": "2015-11-11T05:00:00Z",
-    "allDay": false
-}
-```
+Calendar is hosted on Google Calendar, so  contact one of the guild officers if something needs changed
 
 
 ### File Location
