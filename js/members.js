@@ -22,28 +22,57 @@ var commonName = function(name) {
 };
 
 $.get('https://api.guildwars2.com/v2/guild/' + guildId + '/members?access_token=' + token, function(data) {
+  var leaders = [];
+  var officers = [];
+  var webdevs = [];
   var leaderCode = '';
   var officerCode = '';
   var webDevCode = '';
-  var memberCode = function(member) {
-    return "<div class='col-xs-6 col-md-6'>" +
+  var memberCode = function(member, index, array) {
+    var size = function() {
+      if (array.length === 1 || (array.length % 2 === 1 && index === array.length - 1)) {
+        return 'col-xs-12'
+      } else {
+        return 'col-xs-6'
+      }
+    };
+    var row = (index % 2 === 1) ? ['<div class="row">', '</div>'] : ['', ''];
+
+    return row[0] + "<div class='" + size() + "'>" +
         "<h2>" + member.name + "</h2>" +
         "<p>" + member.rank + "</p>" +
         "<h4>" + commonName(member.name) + "</h4>" +
-        "</div>"
+        "</div>" + row[1];
   };
 
   data.forEach(function(member) {
     //todo don't hard code rank names -- this is rank.order 1 && rank.order 2-4
-    leaderCode = leaderCode +
-        (member.rank === 'Moondremoth' ? memberCode(member) : '');
+    switch (member.rank) {
+      case 'Moondremoth':
+        leaders.push(member);
+        break;
+      case 'Dragon Champion':
+      case 'Aspect Master':
+      case 'Death God':
+        officers.push(member);
+        break;
+      default:
+        if (member.name === 'Arithmancer.5307') {
+          webdevs.push(member);
+        }
+    }
+  });
 
-    officerCode = officerCode +
-        ((member.rank === 'Dragon Champion' || member.rank === 'Aspect Master' || member.rank === 'Death God') ?
-            memberCode(member) : '');
+  leaders.forEach(function(member, index, array) {
+    leaderCode = leaderCode + memberCode(member, index, array);
+  });
 
-    webDevCode = webDevCode +
-        (member.name === 'Arithmancer.5307' ? memberCode(member) : '');
+  officers.forEach(function(member, index, array) {
+    officerCode = officerCode + memberCode(member, index, array);
+  });
+
+  webdevs.forEach(function(member, index, array) {
+    webDevCode = webDevCode + memberCode(member, index, array);
   });
 
   $("#leader-info").html(leaderCode);
